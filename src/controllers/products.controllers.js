@@ -1,4 +1,4 @@
-import productModel from "../models/product.js";
+import productModel from "../daos/models/product.model.js";
 
 export const getProducts = async (req, res) => {
     try {
