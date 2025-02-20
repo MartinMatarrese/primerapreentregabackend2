@@ -1,4 +1,5 @@
 import cartModel from "../daos/models/cart.model.js";
+import { cartServices } from "../services/cart.service.js";
 
 export class CartControllers {
     constructor() {
@@ -22,7 +23,7 @@ export class CartControllers {
     
     createCart = async (req, res) => {
         try {
-            const respuesta = await cartModel.create({products: []})
+            const respuesta = await cartServices.create({products: []})
             res.status(201).send(respuesta)
         } catch(e) {
             res.status(500).send(e)

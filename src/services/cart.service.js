@@ -1,7 +1,7 @@
 import Services from "./service.manager.js";
-import { CartControllers } from "../controllers/carts.controllers.js";
+import cartModel from "../daos/models/cart.model.js";
 
-const cartDao = new CartControllers();
+const cartDao = cartModel;
 
 class CartServices extends Services {
     constructor() {
@@ -10,7 +10,8 @@ class CartServices extends Services {
 
     createCart = async() => {
         try {
-            return await this.dao.createCart();
+            const newCart = await this.dao.create({products: []});
+            return newCart;
         } catch(error) {
             throw error            
         }

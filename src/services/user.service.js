@@ -53,7 +53,7 @@ class UserService extends Services {
         try {
             const { email, password } = user;
             const userExist = await this.getUserByEmail(email);
-            if(!existUser) throw new Error("Usuario no encontrado");
+            if(!userExist) throw new Error("Usuario no encontrado");
             const passValid = isValidPassword(password, userExist);
             if(!passValid) throw new Error("Credenciales incorrectas");
             return this.generateToken(userExist);
